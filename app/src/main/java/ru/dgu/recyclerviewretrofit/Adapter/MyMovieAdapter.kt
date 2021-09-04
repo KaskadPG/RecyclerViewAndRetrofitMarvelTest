@@ -1,7 +1,7 @@
 package ru.dgu.recyclerviewretrofit.Adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,24 +11,25 @@ import android.widget.Toast
 import ru.dgu.recyclerviewretrofit.Model.Movie
 import ru.dgu.recyclerviewretrofit.R
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_layout.view.*
+
 
 
 class MyMovieAdapter(private val context: Context, private val movieList: MutableList<Movie>):RecyclerView.Adapter<MyMovieAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val image: ImageView = itemView.image_movie
-        val txt_name: TextView = itemView.txt_name
-        val txt_team: TextView = itemView.txt_team
-        val txt_createdby: TextView = itemView.txt_createdby
+        var imageMovie: ImageView = itemView.imageMovie
+        var txtName: TextView = itemView.txtName
+        var txtTeam: TextView = itemView.txtTeam
+        var txtCreatedby: TextView = itemView.txtCreatedby
+
 
         fun bind(listItem: Movie) {
-            image.setOnClickListener {
-                Toast.makeText(it.context, "нажал на ${itemView.image_movie}", Toast.LENGTH_SHORT)
+            imageMovie.setOnClickListener {
+                Toast.makeText(it.context, "нажал на ${itemView.imageMovie}", Toast.LENGTH_SHORT)
                     .show()
             }
             itemView.setOnClickListener {
-                Toast.makeText(it.context, "нажал на ${itemView.txt_name.text}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(it.context, "нажал на ${itemView.txtName.text}", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -44,10 +45,10 @@ class MyMovieAdapter(private val context: Context, private val movieList: Mutabl
         val listItem = movieList[position]
         holder.bind(listItem)
 
-        Picasso.get().load(movieList[position].imageurl).into(holder.image)
-        holder.txt_name.text = movieList[position].name
-        holder.txt_team.text = movieList[position].team
-        holder.txt_createdby.text = movieList[position].createdby
+        Picasso.get().load(movieList[position].imageurl).into(holder.imageMovie)
+        holder.txtName.text = movieList[position].name
+        holder.txtTeam.text = movieList[position].team
+        holder.txtCreatedby.text = movieList[position].createdby
     }
 
 }

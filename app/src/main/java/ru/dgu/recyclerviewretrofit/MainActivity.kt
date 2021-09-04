@@ -13,19 +13,20 @@ import ru.dgu.recyclerviewretrofit.Adapter.MyMovieAdapter
 import ru.dgu.recyclerviewretrofit.Common.Common
 import ru.dgu.recyclerviewretrofit.Interface.RetrofitServieces
 import ru.dgu.recyclerviewretrofit.Model.Movie
-import ru.dgu.recyclerviewretrofit.R
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 
 
 
-class MainActivity : AppCompatActivity() {
+
+
+class   MainActivity : AppCompatActivity() {
 
     lateinit var mService: RetrofitServieces
     lateinit var layoutManager: LinearLayoutManager
     lateinit var adapter: MyMovieAdapter
     lateinit var dialog: AlertDialog
+    lateinit var  recyclerMovieList: RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
